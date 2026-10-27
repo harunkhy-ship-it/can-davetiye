@@ -10,6 +10,7 @@
   --road: #e6d9c0;
   --road-h: 64px;
   --stage: 92px;
+  --note-h: 46px;
   font-family: 'Nunito', system-ui, sans-serif;
 }
 
@@ -46,7 +47,7 @@ body {
 .cloud.c2 { top: 24%; width: 84px;  animation: float 110s linear infinite -60s; }
 .cloud.c3 { top: 44%; width: 100px; animation: float 95s linear infinite -30s; opacity: .55; }
 
-.tree { position: absolute; bottom: calc(var(--road-h) - 6px); fill: var(--green); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; transform-origin: 50% 100%; animation: sway 5s ease-in-out infinite alternate; }
+.tree { position: absolute; bottom: calc(var(--note-h) + var(--road-h) - 6px); fill: var(--green); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; transform-origin: 50% 100%; animation: sway 5s ease-in-out infinite alternate; }
 .tree.t1 { left: 3%;  width: 44px; }
 .tree.t2 { left: 12%; width: 32px; animation-delay: -2s; }
 .tree.t3 { right: 4%; width: 48px; animation-delay: -1s; }
@@ -54,7 +55,7 @@ body {
 
 .road {
   position: absolute;
-  left: 0; right: 0; bottom: 0;
+  left: 0; right: 0; bottom: var(--note-h);
   height: var(--road-h);
   background: var(--road);
   border-top: 2.5px solid var(--ink);
@@ -73,8 +74,8 @@ body {
 .veh.rtl { animation-direction: reverse; }
 .veh svg { display: block; width: 100%; height: auto; }
 .veh.rtl svg { transform: scaleX(-1); }
-.veh.back  { bottom: 24px; z-index: 1; }
-.veh.front { bottom: 2px;  z-index: 2; }
+.veh.back  { bottom: calc(var(--note-h) + 24px); z-index: 1; }
+.veh.front { bottom: calc(var(--note-h) + 2px);  z-index: 2; }
 .mixer { width: 150px; }
 .digger { width: 170px; }
 .fire { width: 170px; }
@@ -104,7 +105,7 @@ body {
 /* Kart, yolun üstündeki alanda kayar; araçlar hep görünür kalır */
 .wrap {
   position: fixed;
-  inset: 0 0 var(--stage) 0;
+  inset: 0 0 calc(var(--stage) + var(--note-h)) 0;
   z-index: 3;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -226,22 +227,23 @@ fieldset.choices legend { grid-column: 1 / -1; padding: 0; }
 /* ---------- Sağ/sol alt köşe: tarih, saat, yer ---------- */
 .eventnote {
   position: fixed;
-  left: 10px; bottom: 8px;
+  left: 0; right: 0; bottom: 0;
+  height: var(--note-h);
   z-index: 5;
-  max-width: calc(100vw - 20px);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
   font-size: 11px;
   line-height: 1.35;
   letter-spacing: .01em;
-  background: rgba(251, 245, 234, .9);
-  border: 1.5px solid var(--ink);
-  border-radius: 9px;
-  padding: 3px 8px;
+  background: var(--cream);
+  border-top: 2.5px solid var(--ink);
 }
 
 @media (min-width: 720px) {
   .mixer { width: 190px; } .digger { width: 210px; } .fire { width: 200px; } .ambulance { width: 180px; } .car { width: 130px; }
   .sun { width: 120px; top: 20px; right: 40px; }
-  :root { --road-h: 72px; --stage: 118px; }
+  :root { --road-h: 72px; --stage: 118px; --note-h: 36px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
