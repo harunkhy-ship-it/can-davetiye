@@ -139,6 +139,14 @@ h2 { font-size: 1.8rem; text-align: center; margin-top: 18px; }
 .lead { margin: 0 0 18px; font-size: 1.02rem; }
 #view-thanks .lead { text-align: center; }
 
+.program { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 8px; text-align: left; }
+.program li {
+  display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center;
+  background: #fff; border: 2px solid var(--ink); border-radius: 14px;
+  padding: 8px 12px; font-weight: 700; font-size: .98rem;
+}
+.program .ico { font-size: 1.15rem; line-height: 1; letter-spacing: .05em; }
+
 /* ---------- Vinç animasyonu ---------- */
 .swing { transform-origin: 130px 56px; animation: swing 3.4s ease-in-out infinite alternate; }
 .cable { transform-origin: 130px 56px; animation: cable 10s ease-in-out infinite; }

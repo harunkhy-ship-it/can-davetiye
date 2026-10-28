@@ -26,7 +26,19 @@
   const utc = (d) =>
     `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
 
-  const description = [C.eventNote, '', `Yer: ${location}`, `Harita: ${mapsUrl}`, C.contact || ''].join('\n').trim();
+  const programLines = (C.program || []).map((p) => `${p.icon} ${p.text}`);
+  const programList = $('#program');
+  (C.program || []).forEach((p) => {
+    const li = document.createElement('li');
+    const ico = document.createElement('span');
+    ico.className = 'ico';
+    ico.setAttribute('aria-hidden', 'true');
+    ico.textContent = p.icon;
+    li.append(ico, p.text);
+    programList.appendChild(li);
+  });
+
+  const description = [C.eventNote, '', 'Programımız:', ...programLines, '', `Yer: ${location}`, `Harita: ${mapsUrl}`, C.contact || ''].join('\n').trim();
 
   const googleUrl =
     'https://calendar.google.com/calendar/render?action=TEMPLATE' +

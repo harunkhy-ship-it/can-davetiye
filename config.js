@@ -10,6 +10,13 @@ window.INVITE = {
   start: '2026-11-15T10:30:00+03:00',
   end: '2026-11-15T13:30:00+03:00',
 
+  // Etkinlik programı (formda ve takvim açıklamasında görünür)
+  program: [
+    { icon: '🍽️', text: 'Kahvaltı' },
+    { icon: '🎨', text: 'Çocuklar için Atölye Çalışması' },
+    { icon: '🧸🏗️🚜', text: 'Oyun Alanı' }
+  ],
+
   // Yer
   venue: 'Babek Family Club',
   district: 'Gölbaşı/Ankara',
