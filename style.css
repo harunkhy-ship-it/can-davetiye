@@ -42,10 +42,10 @@ body {
 .sun { position: absolute; top: 14px; right: 16px; width: 92px; }
 .sun .rays { transform-origin: 50px 50px; animation: spin 40s linear infinite; }
 
-.cloud { position: absolute; left: 0; fill: var(--navy); opacity: .85; will-change: transform; }
+.cloud { position: absolute; left: 0; fill: #fff; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; opacity: .95; will-change: transform; }
 .cloud.c1 { top: 6%;  width: 120px; animation: float 80s linear infinite -10s; }
 .cloud.c2 { top: 24%; width: 84px;  animation: float 110s linear infinite -60s; }
-.cloud.c3 { top: 44%; width: 100px; animation: float 95s linear infinite -30s; opacity: .55; }
+.cloud.c3 { top: 44%; width: 100px; animation: float 95s linear infinite -30s; opacity: .75; }
 
 .tree { position: absolute; bottom: calc(var(--note-h) + var(--road-h) - 6px); fill: var(--green); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; transform-origin: 50% 100%; animation: sway 5s ease-in-out infinite alternate; }
 .tree.t1 { left: 3%;  width: 44px; }
