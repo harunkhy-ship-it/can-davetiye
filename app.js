@@ -19,7 +19,14 @@
   document.title = `${C.childName} 2 Yaşında! · Doğum Günü Davetiyesi`;
   $('#title').textContent = C.title;
   $('#message').textContent = C.message;
-  $('#eventnote').textContent = `${dateStr} · ${timeStr} · ${C.venue}, ${C.district}`;
+  const note = $('#eventnote');
+  const noteText = document.createElement('span');
+  noteText.textContent = `${dateStr} · Saat ${timeStr} · ${C.venue}, ${C.district}`;
+  note.appendChild(noteText);
+  const fitNote = () => note.style.setProperty('--shift', `${note.clientWidth - 24 - noteText.offsetWidth}px`);
+  fitNote();
+  window.addEventListener('resize', fitNote);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNote);
 
   /* ---------- Takvim bağlantıları ---------- */
   const pad = (n) => String(n).padStart(2, '0');

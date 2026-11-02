@@ -19,7 +19,7 @@ window.INVITE = {
 
   // Yer
   venue: 'Babek Family Club',
-  district: 'Gölbaşı/Ankara',
+  district: 'İncek',
   address:
     'Kızılcaşar Mah. Yavuz Sultan Selim Bulvarı No:7 Bulvar Loft Sitesi A2 Blok No: 7, F - 169, 06830 Gölbaşı/Ankara',
   // İsterseniz Google Maps'ten kopyaladığınız kısa linki buraya yapıştırın. Boşsa adresten otomatik üretilir.

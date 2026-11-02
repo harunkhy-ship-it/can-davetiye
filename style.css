@@ -10,7 +10,7 @@
   --road: #e6d9c0;
   --road-h: 64px;
   --stage: 92px;
-  --note-h: 46px;
+  --note-h: 38px;
   font-family: 'Nunito', system-ui, sans-serif;
 }
 
@@ -241,17 +241,26 @@ fieldset.choices legend { grid-column: 1 / -1; padding: 0; }
   display: flex;
   align-items: center;
   padding: 0 12px;
-  font-size: 11px;
-  line-height: 1.35;
-  letter-spacing: .01em;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1b1b28;
   background: var(--cream);
   border-top: 2.5px solid var(--ink);
 }
+/* Yazı şeridin içinde sağa sola kayar (JS --shift değerini hesaplar) */
+.eventnote span {
+  display: inline-block;
+  white-space: nowrap;
+  animation: noteslide 14s ease-in-out infinite alternate;
+}
+@keyframes noteslide { from { transform: translateX(0); } to { transform: translateX(var(--shift, 0px)); } }
 
 @media (min-width: 720px) {
   .mixer { width: 190px; } .digger { width: 210px; } .fire { width: 200px; } .ambulance { width: 180px; } .car { width: 130px; }
   .sun { width: 120px; top: 20px; right: 40px; }
-  :root { --road-h: 72px; --stage: 118px; --note-h: 36px; }
+  :root { --road-h: 72px; --stage: 118px; --note-h: 38px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
