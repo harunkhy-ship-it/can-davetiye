@@ -20,13 +20,11 @@
   $('#title').textContent = C.title;
   $('#message').textContent = C.message;
   const note = $('#eventnote');
-  const noteText = document.createElement('span');
-  noteText.textContent = `${dateStr} · Saat ${timeStr} · ${C.venue}, ${C.district}`;
-  note.appendChild(noteText);
-  const fitNote = () => note.style.setProperty('--shift', `${note.clientWidth - 24 - noteText.offsetWidth}px`);
-  fitNote();
-  window.addEventListener('resize', fitNote);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNote);
+  [`${dateStr} · Saat ${timeStr}`, `${C.venue}, ${C.district}`].forEach((line) => {
+    const span = document.createElement('span');
+    span.textContent = line;
+    note.appendChild(span);
+  });
 
   /* ---------- Takvim bağlantıları ---------- */
   const pad = (n) => String(n).padStart(2, '0');
