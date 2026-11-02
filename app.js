@@ -20,11 +20,18 @@
   $('#title').textContent = C.title;
   $('#message').textContent = C.message;
   const note = $('#eventnote');
-  [`${dateStr} · Saat ${timeStr}`, `${C.venue}, ${C.district}`].forEach((line) => {
-    const span = document.createElement('span');
-    span.textContent = line;
-    note.appendChild(span);
-  });
+  // Tek blok, iki satır: üstte tarih ve saat, altta konum. Sağdan girip soldan çıkar, sonra tekrar başlar.
+  const item = document.createElement('div');
+  item.className = 'item';
+  const line1 = document.createElement('div');
+  const line2 = document.createElement('div');
+  line1.textContent = `${dateStr} · Saat ${timeStr}`;
+  line2.textContent = `${C.venue}, ${C.district}`;
+  item.append(line1, line2);
+  note.appendChild(item);
+  const speed = () => { item.style.animationDuration = `${Math.max(8, (note.clientWidth + item.offsetWidth) / 55)}s`; };
+  speed();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(speed);
 
   /* ---------- Takvim bağlantıları ---------- */
   const pad = (n) => String(n).padStart(2, '0');

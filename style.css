@@ -242,9 +242,8 @@ fieldset.choices legend { grid-column: 1 / -1; padding: 0; }
   height: var(--note-h);
   z-index: 5;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 14px;
+  align-items: center;
+  overflow: hidden;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
@@ -252,7 +251,9 @@ fieldset.choices legend { grid-column: 1 / -1; padding: 0; }
   background: var(--cream);
   border-top: 2.5px solid var(--ink);
 }
-.eventnote span { display: block; }
+/* Bilgi şeridi: tek blok sağdan girer, soldan çıkar ve tekrar başlar */
+.eventnote .item { white-space: nowrap; flex: none; animation: ticker 16s linear infinite; }
+@keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
 
 @media (min-width: 720px) {
   .mixer { width: 190px; } .digger { width: 210px; } .fire { width: 200px; } .ambulance { width: 180px; } .car { width: 130px; }
@@ -263,5 +264,6 @@ fieldset.choices legend { grid-column: 1 / -1; padding: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .veh { display: none; }
+  .eventnote .item { padding: 0 14px; white-space: normal; }
   .veh.front.car { display: block; left: 12%; }
 }
